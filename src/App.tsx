@@ -8,12 +8,16 @@ import { Roadmap } from "./pages/roadmap/Roadmap";
 import { Partner } from "./pages/partner/Partner";
 import { Footer } from "./pages/footer/Footer";
 
-function App() {
-
+function App() {  
+  
   return (
-    <main className="bg-heroBg bg-no-repeat bg-cover m-0 p-0 bg-center">
-      <Navbar/>
-      <Hero />
+    <main className="bg-heroBg bg-no-repeat bg-cover w-full">
+      {/* className="bg-heroBg bg-no-repeat bg-cover w-full" */}
+      <div className="bg-heroHd bg-no-repeat bg-cover">
+        <Navbar/>
+        <Hero />
+      </div>
+      
       <Intro />
       <Tokenomic />
       <Howto/>

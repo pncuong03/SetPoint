@@ -6,21 +6,27 @@ module.exports = {
       colors: {
         white: "#fff",
         gray: "#878787",
-        aliceblue: "rgba(236, 241, 255, 0.6)",
+        secondaryDark: "var(--secondary-dark, #16194F)",
       },
       backgroundImage: {
-        heroBg: "url('../public/Group-14.png')",
+        heroBg: "url('../public/Rectangle-71.svg')",
+        heroHd: "url('../public/Vector-2.png')",
+        footerBg: "url('../public/Vector-12.svg')",
+      },
+      listStyleImage : {
+        checkMark:"url('../public/Check-icon-1.svg')",
       },
       spacing: {},
       fontFamily: {
-        medium: "Roboto",
         inter: "Inter",
+        sans: "Roboto",
       },
       borderRadius: {
         "31xl": "50px",
         "35xl": "54px",
       },
     },
+   
     fontSize: {
       mid: "17px",
       xs: "12px",
@@ -30,8 +36,16 @@ module.exports = {
       "111xl": "130px",
       "45xl": "64px",
       "31xl": "50px",
+      "30xl": "45px",
       inherit: "inherit",
     },
+    fontWeight: {
+      normal: '400',
+      medium: '500',
+      semibold: '600',
+      bold: '700',
+  
+    }
   },
   corePlugins: {
     preflight: false,

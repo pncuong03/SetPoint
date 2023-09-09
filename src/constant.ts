@@ -92,7 +92,7 @@ export const roadmapData=[
     {
         id:4, 
         heading:'PHASE 4',
-        title:'Launch',
+        title:'Prosperity',
         des:'IN PROGRESS',
         content: [
             {
