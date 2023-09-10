@@ -2,46 +2,41 @@ import React from "react";
 
 export const Navbar = () => {
   return (
-      <header className="flex justify-between items-center w-[1300px] h-[97px] mx-auto">
-          <div className=" ">
-            <img
-              className="w-[120px] cursor-pointer"
-              src="/Logo.svg"
-              alt="..."
-            />
-          </div>
-          <div className="nav-links duration-500 md:static absolute md:min-h-fit min-h-[60vh] left-0 top-[-100%] md:w-auto flex items-center px-5 text-[24px] font-inter">
-            <ul className="flex md:flex-row flex-col md:items-center md:gap-[4vw] gap-8 list-none">
-              <li>
-                <a className="hover:text-gray-500" href="#">
-                  Home
-                </a>
-              </li>
-              <li>
-                <a className="hover:text-gray-500" href="#">
-                  Tokenomicts
-                </a>
-              </li>
-              <li>
-                <a className="hover:text-gray-500" href="#">
-                  Roadmap
-                </a>
-              </li>
-              <li>
-                <a className="hover:text-gray-500" href="#">
-                  Community
-                </a>
-              </li>
-              <li>
-                <button className="bg-[#216BEB] text-white px-4 py-4 rounded-[54px] text-[24px] font-inter">
-                  Buy $TRT
-                </button>
-              </li>
-            </ul>
-          </div>
-
-      
-     
-      </header>
+    <nav className="lg:flex items-center mx-[150px] ">
+      <div className="lg:flex lg:flex-wrap lg:gap-[250px] lg:justify-around">
+        <div className="flex items-center lg:ml-4">
+          <img src="/Logo.svg" className="h-8 mr-3" alt="" />
+        </div>
+        <div className="w-full md:w-auto md:flex md:items-center md:gap-4">
+          <ul className="font-inter text-5xl flex gap-4 lg:flex-row list-none">
+            <li>
+              <a href="#" className="text-black">
+                Home
+              </a>
+            </li>
+            <li>
+              <a href="#" className="text-black no-underline">
+                Tokenomicts
+              </a>
+            </li>
+            <li>
+              <a href="#" className="text-black no-underline">
+                Roadmap
+              </a>
+            </li>
+            <li>
+              <a href="#" className="text-black no-underline">
+                Community
+              </a>
+            </li>
+            <li>
+              <button className="text-black bg-[#216BEB] px-2 py-2 rounded-[54px] text-5xl font-inter no-underline mt-0">
+                Buy $TRT
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
   );
 };

@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       colors: {
         white: "#fff",
+        black: "#000",
         gray: "#878787",
         secondaryDark: "var(--secondary-dark, #16194F)",
       },
@@ -41,6 +42,7 @@ module.exports = {
       "31xl": "55px",
       "30xl": "45px",
       inherit: "inherit",
+      "444": "400px",
     },
     fontWeight: {
       normal: '400',

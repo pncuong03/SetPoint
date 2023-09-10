@@ -1,7 +1,7 @@
 export const Tokenomic = () => {
   return (
     <section>
-      <div className="flex flex-col items-center justify-center mx-[120px] gap-[112px] mt-[10%] bg-tokenomicBg bg-no-repeat md:bg-cover lg:bg-contain">
+      <div className="flex flex-col items-center justify-center mx-[120px] gap-[150px] mt-[20%] bg-tokenomicBg bg-no-repeat md:bg-cover lg:bg-contain lg:h-[700px]">
         <div className="w-[410px] h-[157px] ">
             <img className="mx-auto my-auto" src="Treaty.svg" alt="" />                         
             <div className="text-[48px] text-center font-inter text-[#595A05] -m-16  ">
