@@ -2,10 +2,8 @@ import React from "react";
 
 export const Navbar = () => {
   return (
-    <nav>
-      <header className="">
-        <nav className="flex justify-between items-center w-[1300px] h-[97px] mx-auto ">
-          <div>
+      <header className="flex justify-between items-center w-[1300px] h-[97px] mx-auto">
+          <div className=" ">
             <img
               className="w-[120px] cursor-pointer"
               src="/Logo.svg"
@@ -35,14 +33,15 @@ export const Navbar = () => {
                 </a>
               </li>
               <li>
-                <button className="bg-[#216BEB] text-white px-4 py-3 rounded-[54px] text-[24px] font-inter">
+                <button className="bg-[#216BEB] text-white px-4 py-4 rounded-[54px] text-[24px] font-inter">
                   Buy $TRT
                 </button>
               </li>
             </ul>
           </div>
-        </nav>
+
+      
+     
       </header>
-    </nav>
   );
 };
