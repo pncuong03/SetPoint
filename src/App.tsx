@@ -9,16 +9,19 @@ import { Footer } from "./pages/footer/Footer";
 
 function App() {
   return (
-    <main className="bg-heroBg bg-no-repeat lg:bg-cover lg:bg-fixed w-[100%] lg:bg-contain">
+    <main className="bg-heroBg bg-no-repeat lg:bg-cover lg:bg-fixed w-[100%]">
       <div className="bg-heroHd bg-no-repeat md:bg-cover lg:bg-contain">
         <Navbar />
         <Hero />
       </div>
-
       <Intro />
+      <div className="bg-tokenomicBg bg-no-repeat bg-cover ">
+
       <Tokenomic />
-      <div className="bg-roadmapBg bg-no-repeat md:bg-cover lg:bg-contain">
+      </div>
+      
         <Howto />
+      <div className="bg-roadmapBg bg-no-repeat bg-cover">
         <Roadmap />
       </div>
 

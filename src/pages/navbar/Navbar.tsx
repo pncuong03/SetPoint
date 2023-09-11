@@ -1,42 +1,35 @@
-import React from "react";
-
+import { FiMenu } from "react-icons/fi";
+import { useState } from "react"
 export const Navbar = () => {
+  const [open, setOpen] = useState(false);
   return (
-    <nav className="lg:flex items-center mx-[150px] ">
-      <div className="lg:flex lg:flex-wrap lg:gap-[250px] lg:justify-around">
-        <div className="flex items-center lg:ml-4">
-          <img src="/Logo.svg" className="h-8 mr-3" alt="" />
+    <header className="py-4">
+      <div className="flex items-center justify-between lg:px-[10%] flex-wrap ">
+        <div className="">
+        <img src="/LogoTreaty.svg" className="w-[300px] m-3 lg:m-0" alt="" />
         </div>
-        <div className="w-full md:w-auto md:flex md:items-center md:gap-4">
-          <ul className="font-inter text-5xl flex gap-4 lg:flex-row list-none">
-            <li>
-              <a href="#" className="text-black">
-                Home
-              </a>
-            </li>
-            <li>
-              <a href="#" className="text-black no-underline">
-                Tokenomicts
-              </a>
-            </li>
-            <li>
-              <a href="#" className="text-black no-underline">
-                Roadmap
-              </a>
-            </li>
-            <li>
-              <a href="#" className="text-black no-underline">
-                Community
-              </a>
-            </li>
-            <li>
-              <button className="text-black bg-[#216BEB] px-2 py-2 rounded-[54px] text-5xl font-inter no-underline mt-0">
-                Buy $TRT
-              </button>
-            </li>
-          </ul>
-        </div>
+          
+          <FiMenu className="lg:hidden block h-6 w-6 cursor-pointer px-10" onClick={()=> setOpen(!open)}/>
+            <nav className={`${ open ? "block" : "hidden"} w-full lg:flex flex-col lg:flex-row lg:items-center lg:w-auto `}>
+            <ul className="text-normal w-auto text-5xl lg:flex lg:justify-between lg:list-none list-none gap-4">
+              <li>
+                  <a href="#" className="lg:px-5 py-2 block hover:text-blue-700 font-inter">Home</a>
+              </li>
+              <li>
+                  <a href="#" className="lg:px-5 py-2 block hover:text-blue-700  font-inter">Tokenomics</a>
+              </li>
+              <li>
+                  <a href="#" className="lg:px-5 py-2 block hover:text-blue-700  font-inter">Roadmap</a>
+              </li>
+              <li>
+                  <a href="#" className="lg:px-5 py-2 block hover:text-blue-700  font-inter">Community</a>
+              </li>
+              <li>
+                  <a href="#" className="lg:px-5 lg:py-4 py-2 px-4 bg-[#216BEB] font-inter text-white rounded-[54px]">Buy $TRT</a>
+              </li>
+            </ul>
+          </nav>
       </div>
-    </nav>
+    </header>
   );
 };
