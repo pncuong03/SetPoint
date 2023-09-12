@@ -7,8 +7,7 @@ export const Hero = () => {
         <div className="flex flex-col items-center gap-[120px] lg:flex-row lg:items-center lg:justify-around">
           <div className="flex flex-col gap-[20px] items-center text-center w-[350px] lg:items-start lg:w-[120%] md:w-[100%]">
             <h1 className="text-4xl md:text-11xl lg:text-12xl 2xl:text-45xl  lg:text-start font-inter font-bold m-0">
-              Welcome to the Treaty community! Experience bursts of luck and
-              jackpots. Are you the chosen one to receive the genie's wish?
+              Welcome to the Treaty community! Experience bursts of luck and jackpots. Are you the chosen one to receive the genie's wish?
             </h1>
             <p className="text-4xl md:text-11xl lg:text-12xl 2xl:text-45xl lg:text-start font-inter font-normal m-0">
               First Memecoin GameFi project on Sui Network
