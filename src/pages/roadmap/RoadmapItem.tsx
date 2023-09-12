@@ -16,7 +16,7 @@ interface RoadmapCardPorps {
 
 export const RoadmapCard = ({ data }: RoadmapCardPorps) => {
   return (
-    <div className="font-inter rounded-31xl bg-white flex-1 self-stretch shadow-lg">
+    <div className="font-inter rounded-31xl bg-white self-stretch shadow-lg">
       <h5 className="font-inter text-11xl text-[#636363] font-bold mt-[30px] min-w-[400px]">{data.heading}</h5>
       <p className="font-inter text-30xl text-[#00126F] font-medium m-0 mt-16">{data.title}</p>
       <p className="font-inter text-xs text-[#35CE72] font-medium mb-[80px]">{data.des}</p>

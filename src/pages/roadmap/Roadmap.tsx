@@ -11,7 +11,7 @@ export const Roadmap = () => {
             Roadmap
           </div>
         </div>
-        <div className="flex flex-wrap items-center text-center gap-4 mt-12 ">
+        <div className="flex flex-wrap items-center text-center justify-around gap-4 mt-12 ">
           {roadmapData.map((item) => (
             <RoadmapCard data={item} key={item.id} />
           ))}

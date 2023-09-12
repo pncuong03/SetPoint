@@ -9,9 +9,9 @@ export const Navbar = () => {
         <img src="/LogoTreaty.svg" className="w-[300px] m-3 lg:m-0" alt="" />
         </div>
           
-          <FiMenu className="lg:hidden block h-8 w-6 cursor-pointer px-10" onClick={()=> setOpen(!open)}/>
-            <nav className={`${ open ? "block" : "hidden"} w-full lg:flex flex-col lg:flex-row lg:items-center lg:w-auto `}>
-            <ul className="text-normal w-auto text-5xl lg:flex lg:justify-between lg:list-none list-none gap-4">
+          <FiMenu className="2xl:hidden block h-8 w-6 cursor-pointer px-10" onClick={()=> setOpen(!open)}/>
+            <nav className={`${ open ? "block" : "hidden"} w-full 2xl:flex flex-col 2xl:flex-row 2xl:items-center 2xl:w-auto `}>
+            <ul className="text-normal w-auto text-5xl lg:flex lg:justify-between lg:list-none hidden list-none gap-4">
               <li>
                   <a href="#" className="lg:px-5 py-2 block hover:text-blue-700 font-inter">Home</a>
               </li>
