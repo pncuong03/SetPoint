@@ -14,7 +14,7 @@ module.exports = {
       },
       backgroundImage: {
         heroBg: "url('../public/Rectangle-71.svg')",
-        heroHd: "url('../public/Vector-2.png')",
+        heroHd: "url('../public/Vector-21.png')",
         footerBg: "url('../public/Vector-12.svg')",
         tokenomicBg: "url('../public/Group.png')",
         roadmapBg: "url('../public/Group-1.png')",

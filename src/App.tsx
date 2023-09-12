@@ -9,7 +9,7 @@ import { Footer } from "./pages/footer/Footer";
 
 function App() {
   return (
-    <main className="bg-heroBg bg-no-repeat lg:bg-cover lg:bg-fixed w-[100%]">
+    <main className="bg-heroBg bg-no-repeat  lg:bg-cover lg:bg-fixed w-[100%]">
       <div className="bg-heroHd bg-no-repeat md:bg-cover lg:bg-contain">
         <Navbar />
         <Hero />

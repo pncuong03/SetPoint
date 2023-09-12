@@ -4,12 +4,12 @@ export const Navbar = () => {
   const [open, setOpen] = useState(false);
   return (
     <header className="py-4">
-      <div className="flex items-center justify-between lg:px-[10%] flex-wrap ">
+      <div className="flex  items-center justify-between lg:px-[10%] flex-wrap ">
         <div className="">
         <img src="/LogoTreaty.svg" className="w-[300px] m-3 lg:m-0" alt="" />
         </div>
           
-          <FiMenu className="lg:hidden block h-6 w-6 cursor-pointer px-10" onClick={()=> setOpen(!open)}/>
+          <FiMenu className="lg:hidden block h-8 w-6 cursor-pointer px-10" onClick={()=> setOpen(!open)}/>
             <nav className={`${ open ? "block" : "hidden"} w-full lg:flex flex-col lg:flex-row lg:items-center lg:w-auto `}>
             <ul className="text-normal w-auto text-5xl lg:flex lg:justify-between lg:list-none list-none gap-4">
               <li>
