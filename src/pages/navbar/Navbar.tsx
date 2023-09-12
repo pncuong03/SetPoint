@@ -4,14 +4,14 @@ export const Navbar = () => {
   const [open, setOpen] = useState(false);
   return (
     <header className="py-4">
-      <div className="flex  items-center justify-between lg:px-[10%] flex-wrap ">
-        <div className="">
-        <img src="/LogoTreaty.svg" className="w-[300px] m-3 lg:m-0" alt="" />
+      <div className="flex items-center justify-between px-3 lg:px-40 flex-wrap ">
+        <div className="px-4">
+        <img src="/LogoTreaty.svg" className="w-56 xl:w-auto" alt="" />
         </div>
           
-          <FiMenu className="2xl:hidden block h-8 w-6 cursor-pointer px-10" onClick={()=> setOpen(!open)}/>
-            <nav className={`${ open ? "block" : "hidden"} w-full 2xl:flex flex-col 2xl:flex-row 2xl:items-center 2xl:w-auto `}>
-            <ul className="text-normal w-auto text-5xl lg:flex lg:justify-between lg:list-none hidden list-none gap-4">
+          <FiMenu className="lg:hidden block h-8 w-6 cursor-pointer px-10" onClick={()=> setOpen(!open)}/>
+            <nav className={`${ open ? "block" : "hidden"} w-full 2xl:flex 2xl:items-center 2xl:w-auto shadow-md lg:shadow-none`}>
+            <ul className="text-normal lg:text-5xl lg:flex lg:justify-between lg:items-center list-none">
               <li>
                   <a href="#" className="lg:px-5 py-2 block hover:text-blue-700 font-inter">Home</a>
               </li>
@@ -25,8 +25,12 @@ export const Navbar = () => {
                   <a href="#" className="lg:px-5 py-2 block hover:text-blue-700  font-inter no-underline">Community</a>
               </li>
               <li>
-                  <a href="#" className="lg:px-3.5 lg:py-3 py-2 px-4 bg-[#216BEB] font-inter text-white rounded-[54px] no-underline">Buy $TRT</a>
+                <div className="lg:px-14">
+                <button  className="lg:py-4 lg:px-4 py-1.5 bg-[#216BEB] font-inter text-[16px] lg:text-5xl text-white rounded-[54px]">Buy $TRT</button>
+                </div>
+                 
               </li>
+
             </ul>
           </nav>
       </div>
