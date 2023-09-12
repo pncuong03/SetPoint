@@ -9,11 +9,11 @@ export const Tokenomic = () => {
           </div>
         </div>
         <div className="flex flex-col items-center gap-[120px] lg:flex-row lg:items-center lg:justify-around mt-28">
-          <div className="flex flex-col gap-[20px] items-center text-center w-[350px] lg:items-start lg:w-[120%]">
-            <h1 className="text-4xl lg:text-12xl xl:text-45xl lg:text-start font-inter font-bold m-0">
+          <div className="flex flex-col gap-[20px] items-center text-center w-[350px] lg:items-start lg:w-[120%] md:w-[100%] ">
+            <h1 className="text-4xl md:text-11xl lg:text-12xl 2xl:text-45xl lg:text-start font-inter font-bold m-0">
             Tokenomics
             </h1>
-            <p className="text-4xl lg:text-12xl xl:text-45xl lg:text-start font-inter font-normal m-0">
+            <p className="text-4xl md:text-11xl lg:text-12xl 2xl:text-45xl lg:text-start font-inter font-normal m-0">
             Total Supply 1,000,000,000,000 $TRT Burned: 99%
             </p>
           </div>

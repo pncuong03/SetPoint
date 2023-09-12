@@ -16,16 +16,16 @@ export const Navbar = () => {
                   <a href="#" className="lg:px-5 py-2 block hover:text-blue-700 font-inter">Home</a>
               </li>
               <li>
-                  <a href="#" className="lg:px-5 py-2 block hover:text-blue-700  font-inter">Tokenomics</a>
+                  <a href="#" className="lg:px-5 py-2 block hover:text-blue-700  font-inter no-underline">Tokenomics</a>
               </li>
               <li>
-                  <a href="#" className="lg:px-5 py-2 block hover:text-blue-700  font-inter">Roadmap</a>
+                  <a href="#" className="lg:px-5 py-2 block hover:text-blue-700  font-inter no-underline">Roadmap</a>
               </li>
               <li>
-                  <a href="#" className="lg:px-5 py-2 block hover:text-blue-700  font-inter">Community</a>
+                  <a href="#" className="lg:px-5 py-2 block hover:text-blue-700  font-inter no-underline">Community</a>
               </li>
               <li>
-                  <a href="#" className="lg:px-5 lg:py-4 py-2 px-4 bg-[#216BEB] font-inter text-white rounded-[54px]">Buy $TRT</a>
+                  <a href="#" className="lg:px-3.5 lg:py-3 py-2 px-4 bg-[#216BEB] font-inter text-white rounded-[54px] no-underline">Buy $TRT</a>
               </li>
             </ul>
           </nav>

@@ -16,11 +16,11 @@ export const Intro = () => {
               src="/Vector-Smart-Object2-3.svg"
             />
           </div>
-          <div className="flex flex-col gap-[20px] items-center text-center w-[350px] lg:items-start lg:w-[120%] lg:pt-8">
-            <h1 className="text-4xl lg:text-12xl 2xl:text-29xl lg:text-start font-inter font-bold m-0">
+          <div className="flex flex-col gap-[20px] items-center text-center w-[350px] lg:items-start lg:w-[120%] md:w-[100%] lg:pt-8">
+            <h1 className="text-4xl md:text-11xl lg:text-12xl 2xl:text-45xl lg:text-start font-inter font-bold m-0">
             Treaty is a first Memecoin GameFi on Sui Network
             </h1>
-            <p className="text-4xl lg:text-12xl 2xl:text-29xl lg:text-start font-inter font-normal m-0">
+            <p className="text-4xl md:text-11xl lg:text-12xl 2xl:text-45xl lg:text-start font-inter font-normal m-0">
             With a long-term development plan, new themes and many incentives for the community
             </p>
             <div className="text-4xl lg:text-12xl text-white lg:items-start text-center relative">
