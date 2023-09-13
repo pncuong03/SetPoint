@@ -12,10 +12,9 @@ export const Hero = () => {
             <p className="text-4xl md:text-11xl  xl:text-12xl 2xl:text-29xl lg:text-start font-inter font-normal m-0">
               First Memecoin GameFi project on Sui Network
             </p>
-            <div className="text-4xl lg:text-12xl text-white lg:items-start text-center relative">
-              <div className="rounded-[48px] bg-[#216BEB] w-[110px] h-[50px] lg:w-[200px] lg:h-[70px]" />
-              <div className="absolute top-[14px] left-[10px] lg:left-[20px] font-inter">Buy $TRT</div>
-            </div>
+            <div className="lg:px-0">
+                <button  className="lg:py-4 lg:px-4 py-2 bg-[#216BEB] font-inter text-4xl md:text-11xl  xl:text-12xl 2xl:text-29xl text-white rounded-[54px]">Buy $TRT</button>
+                </div>
           </div>
           <div className="lg:flex w-[100%] lg:w-[100%] object-cover">
             <img
