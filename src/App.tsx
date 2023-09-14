@@ -10,17 +10,16 @@ import { Footer } from "./pages/footer/Footer";
 function App() {
   return (
     <main className="bg-heroBg bg-no-repeat  lg:bg-cover lg:bg-fixed w-[100%]">
-      <div className="bg-heroHd bg-no-repeat md:bg-cover lg:bg-contain">
+      <div className="bg-heroHd bg-no-repeat md:bg-cover ">
         <Navbar />
         <Hero />
       </div>
       <Intro />
       <div className="bg-tokenomicBg bg-no-repeat bg-cover ">
-
-      <Tokenomic />
+        <Tokenomic />
       </div>
-      
-        <Howto />
+
+      <Howto />
       <div className="bg-roadmapBg bg-no-repeat bg-cover">
         <Roadmap />
       </div>

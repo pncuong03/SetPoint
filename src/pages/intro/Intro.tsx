@@ -3,8 +3,8 @@ export const Intro = () => {
     <section>
       <div className="flex flex-col items-center justify-center px-24 py-20 pt-16 min-h-screen"> 
       <div className="">
-          <img className="mx-auto my-auto w-[400px]" src="$Treaty.svg" alt="" />
-          <div className="text-29xl text-center nt-inter text-[#595A05] -my-[50px] mx-0">
+          <img className="w-[300px] sm:w-[400px]" src="$Treaty.svg" alt="" />
+          <div className="text-12xl sm:text-29xl text-center nt-inter text-[#595A05] -my-[45px] sm:-my-[60px] mx-0">
           Why Treaty?
           </div>
         </div>
@@ -26,7 +26,6 @@ export const Intro = () => {
             <div className="text-4xl lg:text-12xl text-white lg:items-start text-center relative">
             </div>
           </div>
-          
         </div>
       </div>
     </section>

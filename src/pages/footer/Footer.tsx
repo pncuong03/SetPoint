@@ -7,7 +7,6 @@ export const Footer = () => {
           src="/treaty-png-1.svg"
           alt=""
         />
-        
       </div>
     </section>
   );
