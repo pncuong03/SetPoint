@@ -15,9 +15,9 @@ export const Navbar = () => {
         <nav
           className={`${
             open ? "block" : "hidden"
-          } h-screen md:h-full w-full lg:flex lg:items-center lg:w-auto  lg:shadow-none`}
+          } h-screen lg:h-full w-full lg:flex lg:items-center lg:w-auto lg:shadow-none`}
         >
-          <ul className="text-normal text-4xl xl:text-5xl lg:flex lg:justify-between lg:items-center list-none lg:px">
+          <ul className="text-normal text-4xl xl:text-5xl lg:flex lg:justify-between lg:items-center list-none">
             <li>
               <a
                 href="#"
