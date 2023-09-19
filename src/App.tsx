@@ -1,32 +1,29 @@
-import { Navbar } from "./pages/navbar/Navbar";
-import { Hero } from "./pages/hero/Hero";
-import { Howto } from "./pages/howto/Howto";
-import { Intro } from "./pages/intro/Intro";
-import { Tokenomic } from "./pages/tokenomic/Tokenomic";
-import { Roadmap } from "./pages/roadmap/Roadmap";
-import { Partner } from "./pages/partner/Partner";
+import { Build } from "./pages/build/Build";
+import { Flexible1 } from "./pages/flexible/Flexible1";
+import { Flexible2 } from "./pages/flexible/Flexible2";
 import { Footer } from "./pages/footer/Footer";
+import { Header } from "./pages/header/Header";
+import { Intro } from "./pages/intro/Intro";
+import { Power } from "./pages/power/Power";
+import { Unlock } from "./pages/unlock/Unlock";
+import { WhySetpoint } from "./pages/whysetpoint/WhySetpoint";
 
 function App() {
   return (
-    <main className="bg-heroBg bg-no-repeat  lg:bg-cover lg:bg-fixed w-[100%]">
-      <div className="bg-heroHd bg-no-repeat md:bg-cover ">
-        <Navbar />
-        <Hero />
-      </div>
+    <div>
+    <Header />
+    <main className="">
       <Intro />
-      <div className="bg-tokenomicBg bg-no-repeat bg-cover ">
-        <Tokenomic />
-      </div>
-
-      <Howto />
-      <div className="bg-roadmapBg bg-no-repeat bg-cover">
-        <Roadmap />
-      </div>
-
-      <Partner />
+      <WhySetpoint />
+      <Power />
+      <Build />
+      <Flexible1 />
+      <Flexible2 />
+      <Unlock />
       <Footer />
     </main>
+
+    </div>
   );
 }
 export default App;

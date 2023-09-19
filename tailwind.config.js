@@ -1,32 +1,21 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}","./node_modules/flowbite/**/*.js"],
-  plugins: [
-    require('flowbite/plugin')
-],
   theme: {
     extend: {
       colors: {
         white: "#fff",
         black: "#000",
-        gray: "#878787",
-        secondaryDark: "var(--secondary-dark, #16194F)",
+        darkGreen: "#164951",
+        darkViolet: "#3A032D",
       },
       backgroundImage: {
-        heroBg: "url('../public/Rectangle-71.svg')",
-        heroHd: "url('../public/Vector-21.png')",
-        footerBg: "url('../public/Vector-12.svg')",
-        tokenomicBg: "url('../public/Group.png')",
-        roadmapBg: "url('../public/Group-1.png')",
-        centerBg: "url('../public/Treaty.svg')",
-      },
-      listStyleImage : {
-        checkMark:"url('../public/Check-icon-1.svg')",
+        
       },
       spacing: {},
       fontFamily: {
-        inter: "Inter",
-        sans: "Roboto",
+        gascogne: "Gascogne Serial",
+        favorit: "Favorit Pro",
       },
       borderRadius: {
         "31xl": "50px",

@@ -1,5 +1,5 @@
- @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap"); */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -11,3 +11,142 @@ body {
 ::after {
   border-width: 0;
 }
+.btn.btn-coral {
+  border: 1px solid rgba(0,0,0,.1);
+}
+.btn.btn-coral {
+  --tw-bg-opacity: 1;
+  --tw-text-opacity: 1;
+  background-color: rgb(252 144 130/var(--tw-bg-opacity));
+  color: rgb(255 255 255/var(--tw-text-opacity));
+}
+.btn {
+  border-radius: 16px;
+  font-family: Favorit Pro,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+  font-weight: 500;
+  letter-spacing: .01em;
+  line-height: 1.5;
+  padding: 12px 1.25rem;
+  transition-duration: .5s;
+  transition-property: color,background-color,border-color,fill,stroke,-webkit-text-decoration-color;
+  transition-property: color,background-color,border-color,text-decoration-color,fill,stroke;
+  transition-property: color,background-color,border-color,text-decoration-color,fill,stroke,-webkit-text-decoration-color;
+  transition-timing-function: cubic-bezier(.4,0,.2,1);
+}
+.btn.btn-coral:hover {
+  border: 1px solid #faf7f4;
+}
+.btn.btn-coral:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(22 73 81/var(--tw-bg-opacity));
+}
+.section-contained {
+  border-radius: 2rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+.section {
+  display: block;
+}
+.section-bot {
+  padding-bottom: 2.5rem;
+}
+.section-top {
+  margin-top: 2rem;
+  padding-top: 2.5rem;
+}
+.contain-paint {
+  contain: paint!important;
+}
+
+@media (min-width: 1280px) {
+  .section-contained {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 96%;
+    width: 1480px;
+  }
+}
+
+@media (min-width: 768px){
+.section-top {
+    padding-top: 5rem;
+  }
+}
+@media (min-width: 1280px){
+  .section-contained {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 96%;
+    width: 1480px;
+  }
+}
+
+.text-h1, .text-h2, .text-h3, .text-h4, .text-h5, .text-h6, h1, h2, h3, h4, h5, h6 {
+  font-family: Gascogne Serial,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+  letter-spacing: -.01em;
+  line-height: 1;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+blockquote, dd, dl, figure, h1, h2, h3, h4, h5, h6, hr, p, pre {
+  margin: 0;
+}
+@media (min-width: 64rem){
+  .text-h2 {
+      font-size: 3.125rem;
+  }
+}
+@media (min-width: 30rem){
+  .text-h2 {
+      font-size: calc(.53676rem + 4.04412vw);
+  }
+
+}
+.text-h2 {
+  font-size: 3rem;
+}
+@media (min-width: 64rem){
+  .t-20 {
+    font-size: 1.25rem;
+}
+}
+
+@media (min-width: 30rem){
+  .t-20 {
+    font-size: calc(.83824rem + .64338vw);
+}
+}
+
+.t-20 {
+  font-size: 1.5rem;
+}
+.t-19 {
+  font-size: 1.5rem;
+}
+.text-h4 {
+  font-size: 1.25rem;
+}
+.bg-taupe {
+  --tw-bg-opacity: 1;
+  background-color: rgb(250 247 244/var(--tw-bg-opacity));
+}
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+html {
+  --tw-bg-opacity: 1;
+  background-color: rgb(250 247 244/var(--tw-bg-opacity));
+  overflow-x: hidden;
+}
+body, html {
+  --tw-text-opacity: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: rgb(22 73 81/var(--tw-text-opacity));
+  font-family: Favorit Pro,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+}
+
