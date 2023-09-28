@@ -6,12 +6,12 @@ export const Flexible2 = () => {
       <div className="container">
         <div className="text-center  mx-auto max-w-[900px]">
           <h3
-            className=" pt-1 mx-auto text-center text-h2 mb-2 md:mb-3 max-width: 600px"
+            className=" pt-1 mx-auto text-center text-h2 mb-2 md:mb-3 max-w-[600px]"
           >
             Flexible solutions for assets in any stage of the financing
             lifecycle.
           </h3>
-          <div className="pt-2 mx-auto t-19 max-width: 810px" >
+          <div className="pt-2 mx-auto t-19 max-w-[810px]" >
             Use Setpoint’s technology and capital to scale asset-backed products
             and streamline the entire financing process.
           </div>

@@ -14,13 +14,75 @@ export const Build = () => {
       <h4 className="p-large font-body font-bold text-xs">Setpoint Activity Feed</h4>
       <span className="bg-coral w-26 h-26 flex justify-center items-center rounded-full text-white text-xs">4</span>
     </div>
-    <div className="items-center marquee-container">
+    <div className="items-center marquee-container ">
       <div className="marquee">
-        <div>
           <div className="h-168 mt-4 flex items-center activity-card">
             <div className="relative shadow-lg rounded-lg bg-white text-darkGreen flex items-center p-[1.8rem] mr-[35px] min-w-[350px]">
               <div className="w-70 h-70 overflow-hidden mr-5">
-                <img src="/static/bb7cb1d9cca44054a8a8c8b064c8718b/Setpoint-Logo.svg" alt="" draggable="false" className="w-full h-full object-contain object-center"/>
+                <img src="/Setpoint-Logo.svg" alt="" draggable="false" className="w-full h-full object-contain object-center"/>
+              </div>
+              <div className="space-y-1">
+                <div className="flex items-center space-x-2">
+                  <h4 className="p-large font-body font-medium text-base tracking-wide">Draw Request Reporting</h4>
+                  <div>
+                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    </svg>
+                  </div>
+                </div>
+                <p className="text-midGreen text-sm">Lender review</p>
+                <p className="opacity-60 text-sm">1 min ago • Setpoint</p>
+              </div>
+              
+            </div>
+          </div>
+          <div className="h-168 mt-4 flex items-center activity-card">
+            <div className="relative shadow-lg rounded-lg bg-white text-darkGreen flex items-center p-[1.8rem] mr-[35px] min-w-[350px]">
+              <div className="w-70 h-70 overflow-hidden mr-5">
+                <img src="/Placeholder-Logo.svg" alt="" draggable="false" className="w-full h-full object-contain object-center"/>
+              </div>
+              <div className="space-y-1">
+                <div className="flex items-center space-x-2">
+                  <h4 className="p-large font-body font-medium text-base tracking-wide">Setpoint Activity Feed</h4>
+                  <span className="bg-coral w-[26px] h-[26px] flex justify-center items-center rounded-full text-white text-xs">4</span>
+                  <div>
+                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="4.66647" cy="4.79659" r="4.58834" fill="#4FEDC7"></circle>
+                      <path d="M2.83105 5.05882L3.87987 6.10763L6.50191 3.4856" stroke="white" stroke-width="0.524408" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                  </div>
+                </div>
+                <p className="text-midGreen text-sm">Lender review</p>
+                <p className="opacity-60 text-sm">1 min ago • Setpoint</p>
+              </div>
+              
+            </div>
+          </div>
+          <div className="h-168 mt-4 flex items-center activity-card">
+            <div className="relative shadow-lg rounded-lg bg-white text-darkGreen flex items-center p-[1.8rem] mr-[35px] min-w-[350px]">
+              <div className="w-70 h-70 overflow-hidden mr-5">
+                <img src="/Setpoint-Logo.svg" alt="" draggable="false" className="w-full h-full object-contain object-center"/>
+              </div>
+              <div className="space-y-1">
+                <div className="flex items-center space-x-2">
+                  <h4 className="p-large font-body font-medium text-base tracking-wide">Draw Request Reporting</h4>
+                  <span className="bg-coral w-[26px] h-[26px] flex justify-center items-center rounded-full text-white text-xs">4</span>
+                  <div>
+                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="4.66647" cy="4.79659" r="4.58834" fill="#4FEDC7"></circle>
+                      <path d="M2.83105 5.05882L3.87987 6.10763L6.50191 3.4856" stroke="white" stroke-width="0.524408" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                  </div>
+                </div>
+                <p className="text-midGreen text-sm">Lender review</p>
+                <p className="opacity-60 text-sm">1 min ago • Setpoint</p>
+              </div>
+              
+            </div>
+          </div>
+          <div className="h-168 mt-4 flex items-center activity-card">
+            <div className="relative shadow-lg rounded-lg bg-white text-darkGreen flex items-center p-[1.8rem] mr-[35px] min-w-[350px]">
+              <div className="w-70 h-70 overflow-hidden mr-5">
+                <img src="/Setpoint-Logo.svg" alt="" draggable="false" className="w-full h-full object-contain object-center"/>
               </div>
               <div className="space-y-1">
                 <div className="flex items-center space-x-2">
@@ -38,9 +100,92 @@ export const Build = () => {
               
             </div>
           </div>
-        </div>
       </div>
       <div className="marquee">
+          <div className="h-168 mt-4 flex items-center activity-card">
+            <div className="relative shadow-lg rounded-lg bg-white text-darkGreen flex items-center p-[1.8rem] mr-[35px] min-w-[350px]">
+              <div className="w-70 h-70 overflow-hidden mr-5">
+                <img src="/Setpoint-Logo.svg" alt="" draggable="false" className="w-full h-full object-contain object-center"/>
+              </div>
+              <div className="space-y-1">
+                <div className="flex items-center space-x-2">
+                  <h4 className="p-large font-body font-medium text-base tracking-wide">Draw Request Reporting</h4>
+                  <div>
+                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    </svg>
+                  </div>
+                </div>
+                <p className="text-midGreen text-sm">Lender review</p>
+                <p className="opacity-60 text-sm">1 min ago • Setpoint</p>
+              </div>
+              
+            </div>
+          </div>
+          <div className="h-168 mt-4 flex items-center activity-card">
+            <div className="relative shadow-lg rounded-lg bg-white text-darkGreen flex items-center p-[1.8rem] mr-[35px] min-w-[350px]">
+              <div className="w-70 h-70 overflow-hidden mr-5">
+                <img src="/Placeholder-Logo.svg" alt="" draggable="false" className="w-full h-full object-contain object-center"/>
+              </div>
+              <div className="space-y-1">
+                <div className="flex items-center space-x-2">
+                  <h4 className="p-large font-body font-medium text-base tracking-wide">Setpoint Activity Feed</h4>
+                  <span className="bg-coral w-[26px] h-[26px] flex justify-center items-center rounded-full text-white text-xs">4</span>
+                  <div>
+                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="4.66647" cy="4.79659" r="4.58834" fill="#4FEDC7"></circle>
+                      <path d="M2.83105 5.05882L3.87987 6.10763L6.50191 3.4856" stroke="white" stroke-width="0.524408" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                  </div>
+                </div>
+                <p className="text-midGreen text-sm">Lender review</p>
+                <p className="opacity-60 text-sm">1 min ago • Setpoint</p>
+              </div>
+              
+            </div>
+          </div>
+          <div className="h-168 mt-4 flex items-center activity-card">
+            <div className="relative shadow-lg rounded-lg bg-white text-darkGreen flex items-center p-[1.8rem] mr-[35px] min-w-[350px]">
+              <div className="w-70 h-70 overflow-hidden mr-5">
+                <img src="/Setpoint-Logo.svg" alt="" draggable="false" className="w-full h-full object-contain object-center"/>
+              </div>
+              <div className="space-y-1">
+                <div className="flex items-center space-x-2">
+                  <h4 className="p-large font-body font-medium text-base tracking-wide">Draw Request Reporting</h4>
+                  <span className="bg-coral w-[26px] h-[26px] flex justify-center items-center rounded-full text-white text-xs">4</span>
+                  <div>
+                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="4.66647" cy="4.79659" r="4.58834" fill="#4FEDC7"></circle>
+                      <path d="M2.83105 5.05882L3.87987 6.10763L6.50191 3.4856" stroke="white" stroke-width="0.524408" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                  </div>
+                </div>
+                <p className="text-midGreen text-sm">Lender review</p>
+                <p className="opacity-60 text-sm">1 min ago • Setpoint</p>
+              </div>
+              
+            </div>
+          </div>
+          <div className="h-168 mt-4 flex items-center activity-card">
+            <div className="relative shadow-lg rounded-lg bg-white text-darkGreen flex items-center p-[1.8rem] mr-[35px] min-w-[350px]">
+              <div className="w-70 h-70 overflow-hidden mr-5">
+                <img src="/Setpoint-Logo.svg" alt="" draggable="false" className="w-full h-full object-contain object-center"/>
+              </div>
+              <div className="space-y-1">
+                <div className="flex items-center space-x-2">
+                  <h4 className="p-large font-body font-medium text-base tracking-wide">Draw Request Reporting</h4>
+                  <div>
+                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="4.66647" cy="4.79659" r="4.58834" fill="#4FEDC7"></circle>
+                      <path d="M2.83105 5.05882L3.87987 6.10763L6.50191 3.4856" stroke="white" stroke-width="0.524408" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                  </div>
+                </div>
+                <p className="text-midGreen text-sm">Lender review</p>
+                <p className="opacity-60 text-sm">1 min ago • Setpoint</p>
+              </div>
+              
+            </div>
+          </div>
       </div>
     </div>
   </div>

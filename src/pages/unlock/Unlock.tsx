@@ -6,11 +6,11 @@ export const Unlock = () => {
   <div className="container">
     <div className="text-center  mx-auto max-w-[900px]">
       <h3
-        className="mx-auto pt-1 mx-auto text-center text-h2 mb-2 md:mb-3 max-w-[660px]"
+        className="mx-auto pt-1 text-center text-h2 mb-2 md:mb-3 max-w-[660px]"
       >
         Unlock modern asset-backed transactions.
       </h3>
-      <div className="pt-2 mx-auto t-20 max-w-[678px]">
+      <div className="pt-2 mx-auto t-20 max-w-[780px]">
         Simple software, easy-to-access capital — in one place, for the first
         time.
       </div>

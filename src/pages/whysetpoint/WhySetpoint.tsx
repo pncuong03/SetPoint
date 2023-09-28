@@ -4,7 +4,7 @@ export const WhySetpoint = () => {
       <div className="container">
         <div className="text-center mx-auto max-width:720px" >
           <h3 className="mx-auto pt-1 text-h2 mb-2 md:mb-3">Why Setpoint?</h3>
-          <div className="pt-2 mx-auto t-19 max-w-[640px]">
+          <div className="pt-2 mx-auto t-19 max-w-[770px]">
             An operating system for capital markets functions that drives
             capital and operational efficiency, while offering peace-of-mind to
             Capital Providers.
@@ -42,7 +42,7 @@ export const WhySetpoint = () => {
       <div className="container">
         <div className="grid gap-y-6 grid-cols-1 rounded-3xl bg-white py-6 md:pt-[46px] md:pb-[40px] text-darkGreen md:mx-6 xl:mx-[50px] gap-6 md:gap-0 md:grid-cols-3 lg:gap-x-[24px]">
           <div className="icon-text-card relative space-y-4 lg:space-y-8 lg:px-6 flex flex-col flex-auto">
-            <div className="w-20 h-24 mx-auto">
+            <div className=" mx-auto">
               <img className="" src="/Cog-Icon.webp" alt="" />
             </div>
             <div className="text-center px-4 h-auto flex flex-col flex-auto">
@@ -54,7 +54,7 @@ export const WhySetpoint = () => {
             </div>
           </div>
           <div className="icon-text-card relative space-y-4 lg:space-y-8 lg:px-6 flex flex-col flex-auto">
-            <div className="w-20 h-24 mx-auto">
+            <div className="mx-auto">
               <img className="" src="/Cog-Icon.webp" alt="" />
             </div>
             <div className="text-center px-4 h-auto flex flex-col flex-auto">
@@ -65,7 +65,7 @@ export const WhySetpoint = () => {
             </div>
           </div>
           <div className="icon-text-card relative space-y-4 lg:space-y-8 lg:px-6 flex flex-col flex-auto">
-            <div className="w-20 h-24 mx-auto">
+            <div className="mx-auto">
               <img className="" src="/Cog-Icon.webp" alt="" />
             </div>
             <div className="text-center px-4 h-auto flex flex-col flex-auto">
