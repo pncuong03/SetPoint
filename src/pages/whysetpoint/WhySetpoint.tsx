@@ -40,7 +40,7 @@ export const WhySetpoint = () => {
         </div>
       </div>
       <div className="container">
-        <div className="grid gap-y-6 grid-cols-1 rounded-3xl bg-white py-6 md:pt-[46px] md:pb-[40px] text-darkGreen md:mx-6 xl:mx-[50px] gap-6 md:gap-0 md:grid-cols-3 lg:gap-x-[24px]">
+        <div className="grid gap-y-6 grid-cols-1 rounded-3xl bg-white py-6 md:pt-[46px] md:pb-[40px] text-darkGreen md:mx-6 xl:mx-[50px] gap-6 md:gap-0 md:grid-cols-3 lg:gap-x-[24px] card-border-small">
           <div className="icon-text-card relative space-y-4 lg:space-y-8 lg:px-6 flex flex-col flex-auto">
             <div className=" mx-auto">
               <img className="" src="/Cog-Icon.webp" alt="" />

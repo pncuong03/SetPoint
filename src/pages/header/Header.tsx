@@ -1,4 +1,6 @@
+
 export const Header = () => {
+ 
   return (
     <header
       className="absolute md:absolute top-0 left-0 right-0 z-[100] transition-colors duration-300 "
@@ -66,8 +68,46 @@ export const Header = () => {
             Speak with us
           </a>
         </div>
+        <div className="md:hidden">
+          <div className="relative z-[9999]">
+            <div className="relative cursor-pointer top-0 w-[16px] h-[12px]">
+              <span className="absolute h-[1.6px] w-full transition-all duration-200 bg-darkGreen top-[8%]">
+              </span>
+              <span className="absolute h-[1.6px] w-full transition-all duration-200 bg-darkGreen top-[92%]">
+              </span>
+            </div>
+          </div>
+        </div>
       </div>
-    
+      <div className="md:hidden">
+  <div className="z-[99] bg-darkGreen text-white fixed w-screen h-screen mt-[-62px] transition-all duration-200 overflow-scroll translate-y-[-100vh]">
+    <div className="border-b border-white mt-[62px]"></div>
+    <div>
+      <div className="px-[10px] py-[18px] space-y-[10px] items-center text-[26px] font-normal flex flex-col">
+        <div className="w-full" >
+          <div className="w-full rounded-[5px] bg-fadedGreen overflow-hidden">
+            <a className="relative w-full flex items-center space-x-6 justify-between z-10 px-5 py-[25px] transition-all duration-200 sm:hover:bg-white sm:hover:text-darkGreen" href="/why-setpoint/">Why Setpoint?</a>
+          </div>
+        </div>
+        <div className="w-full" >
+          <div className="w-full rounded-[5px] bg-fadedGreen overflow-hidden">
+            <a className="relative w-full flex items-center space-x-6 justify-between z-10 px-5 py-[25px] transition-all duration-200 sm:hover:bg-white sm:hover:text-darkGreen" href="/#">Platform<span className="transition-all duration-200 rotate-90"><svg className="w-full h-full max-w-[24px] max-h-[24px]" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="12" fill="#FC9082"></circle><path fill-rule="evenodd" clip-rule="evenodd" d="M13.2378 8.1591L16.8345 11.6159C17.0552 11.828 17.0552 12.172 16.8345 12.3841L13.2378 15.8409C13.0171 16.053 12.6592 16.053 12.4385 15.8409C12.2178 15.6288 12.2178 15.2849 12.4385 15.0727L15.0704 12.5432H6V11.4568H15.0704L12.4385 8.92728C12.2178 8.71515 12.2178 8.37122 12.4385 8.1591C12.6592 7.94697 13.0171 7.94697 13.2378 8.1591Z" fill="white"></path></svg></span></a>
+          </div>
+        </div>
+      </div>
+      <div className="px-[10px] mt-[28px] relative z-10 text-center items-center space-y-[10px] flex flex-col">
+        <div className="block w-full" >
+          <a className="block btn btn-coral-simple w-full max-w-[315px] mx-auto !py-4 border border-coral" href="/contact">Speak with us</a>
+        </div>
+      </div>
+      <div className="px-[10px] my-8 text-center">
+        <p className="!text-sm">© 2023 Setpoint</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
     </header>
   );
 };
