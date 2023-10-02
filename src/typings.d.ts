@@ -4,4 +4,11 @@ declare module "*.css" {
   }
   const classNames: IClassNames;
   export = classNames;
+ 
+}
+import { ExternalProvider } from "@ethersproject/providers";
+declare global {
+  interface Window {
+    ethereum?: ExternalProvider;
+  }
 }

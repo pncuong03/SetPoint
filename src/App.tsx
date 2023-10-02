@@ -17,7 +17,7 @@ function App() {
       <WhySetpoint />
       <Power />
       <Build />
-      <Flexible1 />
+      {/* <Flexible1 /> */}
       <Flexible2 />
       <Unlock />
       <Footer />

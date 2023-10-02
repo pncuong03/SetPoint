@@ -1,6 +1,143 @@
-
+import { useEffect, useState } from "react";
 export const Header = () => {
- 
+  const [walletAddress, setWalletAddress] = useState("");
+
+  useEffect(() => {
+    getCurrentWalletConnected();
+    addWalletListener();
+  }, [walletAddress]);
+
+  const connectWallet = async () => {
+    if (typeof window != "undefined" && typeof window.ethereum != "undefined") {
+      try {
+        const accounts = await window.ethereum.request({
+          method: "eth_requestAccounts",
+        });
+        setWalletAddress(accounts[0]);
+        console.log(accounts[0]);
+      } catch (err:any) {
+        setWalletAddress("");
+        console.error(err.message);
+      }
+    } else {
+      console.log("Please install MetaMask");
+    }
+  };
+  const disconnectWallet = async () => {
+    if (typeof window !== "undefined" && typeof window.ethereum !== "undefined") {
+      try {
+        const isConnected = await window.ethereum.send('eth_accounts');
+  
+        if (isConnected.result && isConnected.result.length > 0) {
+          const provider = window.ethereum;
+          await provider.request({ method: 'wallet_requestPermissions', params: [{ eth_accounts: {} }] });
+          const accounts = await provider.request({ method: 'eth_accounts' });
+  
+          if (accounts.result.length === 0) {
+            setWalletAddress(""); 
+            console.log("Wallet disconnected.");
+          } else {
+            console.log("Disconnect request was not accepted by the user.");
+          }
+        } else {
+          console.log("No connected accounts found.");
+        }
+      } catch (err) {
+        console.error("Error disconnecting wallet:", err);
+      }
+    } else {
+      console.log("Please install MetaMask");
+    }
+  };
+  
+  
+  
+  
+  const addBscTestnetToWallet = async () => {
+    if (typeof window !== "undefined" && typeof window.ethereum !== "undefined") {
+      try {
+        const bscTestnetNetwork = {
+          chainId: '0x61', 
+          chainName: 'Binance Smart Chain Testnet',
+          rpcUrls: ['https://data-seed-prebsc-1-s1.binance.org:8545/'], 
+          blockExplorerUrls: ['https://testnet.bscscan.com/'], 
+          nativeCurrency: {
+            name: 'BNB',
+            symbol: 'bnb',
+            decimals: 18,
+          },
+        };
+  
+      
+        await window.ethereum.request({
+          method: 'wallet_addEthereumChain',
+          params: [bscTestnetNetwork],
+        });
+  
+        console.log('BSC Testnet added to wallet.');
+      } catch (error) {
+        console.error('Error adding BSC Testnet to wallet:', error);
+      }
+    } else {
+      console.log('MetaMask or wallet provider not found.');
+    }
+  };
+  
+
+  const getCurrentWalletConnected = async () => {
+    if (typeof window != "undefined" && typeof window.ethereum != "undefined") {
+      try {
+        const accounts = await window.ethereum.request({
+          method: "eth_accounts",
+        });
+        if (accounts.length > 0) {
+          setWalletAddress(accounts[0]);
+          console.log(accounts[0]);
+        } else {
+          console.log("Connect to MetaMask using the Connect button");
+        }
+      } catch (err:any) {
+        console.error(err.message);
+      }
+    } else {
+    
+      console.log("Please install MetaMask");
+    }
+  };
+
+  const addCustomNetwork = async (network:any) => {
+    if (typeof window !== "undefined" && typeof window.ethereum !== "undefined") {
+      try {
+        await window.ethereum.request({
+          method: 'wallet_addEthereumChain',
+          params: [network]
+        });
+        console.log('New network added to MetaMask.');
+      } catch (error) {
+        console.error('Error adding network to MetaMask:', error);
+      }
+    } else {
+      console.log('MetaMask or wallet provider not found.');
+    }
+  };
+  
+
+  const addWalletListener = async () => {
+    if (typeof window != "undefined" && typeof window.ethereum != "undefined") {
+      window.ethereum.on("accountsChanged", (accounts:any) => {
+        setWalletAddress(accounts[0]);
+        console.log(accounts[0]);
+      });
+    } else {
+    
+      setWalletAddress("");
+      console.log("Please install MetaMask");
+    }
+  };
+
+
+  
+  
   return (
     <header
       className="absolute md:absolute top-0 left-0 right-0 z-[100] transition-colors duration-300 "
@@ -67,7 +204,34 @@ export const Header = () => {
           >
             Speak with us
           </a>
+          <a
+            className="btn btn-coral-simple !px-[12px] !py-[8px]"
+            href="/speak-with-us/"
+            onClick={connectWallet}
+          >
+          {walletAddress && walletAddress.length > 0
+                    ? `Connected: ${walletAddress.substring(
+                      0,6
+                      )}...${walletAddress.substring(38)}`
+                    : "Connect Wallet"}
+          </a>
+          <a
+            className="btn btn-coral-simple !px-[12px] !py-[8px]"
+            href="/speak-with-us/"
+            onClick={disconnectWallet}
+          >
+            Switch Wallet
+          </a>
+          <a
+            className="btn btn-coral-simple !px-[12px] !py-[8px]"
+            href="/speak-with-us/"
+            onClick={addBscTestnetToWallet}
+          >
+            Add BSC Testnet
+          </a>
+         
         </div>
+        
         <div className="md:hidden">
           <div className="relative z-[9999]">
             <div className="relative cursor-pointer top-0 w-[16px] h-[12px]">
