@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 export const Header = () => {
   const [walletAddress, setWalletAddress] = useState("");
+  const [walletBalance, setWalletBalance] = useState("");
 
   useEffect(() => {
     getCurrentWalletConnected();
-    addWalletListener();
+    addWalletAddress();
+    addWalletBalance();
   }, [walletAddress]);
 
   const connectWallet = async () => {
@@ -14,8 +16,7 @@ export const Header = () => {
           method: "eth_requestAccounts",
         });
         setWalletAddress(accounts[0]);
-        console.log(accounts[0]);
-      } catch (err:any) {
+      } catch (err: any) {
         setWalletAddress("");
         console.error(err.message);
       }
@@ -24,56 +25,63 @@ export const Header = () => {
     }
   };
   const disconnectWallet = async () => {
-    if (typeof window !== "undefined" && typeof window.ethereum !== "undefined") {
-      try {
-        const isConnected = await window.ethereum.send('eth_accounts');
-  
-        if (isConnected.result && isConnected.result.length > 0) {
-          const provider = window.ethereum;
-          await provider.request({ method: 'wallet_requestPermissions', params: [{ eth_accounts: {} }] });
-          const accounts = await provider.request({ method: 'eth_accounts' });
-  
-          if (accounts.result.length === 0) {
-            setWalletAddress(""); 
-            console.log("Wallet disconnected.");
-          } else {
-            console.log("Disconnect request was not accepted by the user.");
-          }
-        } else {
-          console.log("No connected accounts found.");
-        }
-      } catch (err) {
-        console.error("Error disconnecting wallet:", err);
-      }
-    } else {
-      console.log("Please install MetaMask");
+    try {
+      // const accounts = await window.ethereum.request({
+      //   method: 'eth_requestAccounts',
+      //   params: [
+      //     {
+      //       eth_accounts: {},
+      //     },
+      //   ],
+      // });
+      setWalletAddress("");
+      setWalletBalance("");
+      alert('Wallet disconnected.');
+    } catch (error) {
+      alert('Error disconnecting wallet:');
     }
   };
   
-  
-  
-  
+  const switchNetwork = async () => {
+    await window.ethereum.request({
+      method: "wallet_addEthereumChain",
+      params: [{
+          chainId: "0x89",
+          rpcUrls: ["https://rpc-mainnet.matic.network/"],
+          chainName: "Matic Mainnet",
+          nativeCurrency: {
+              name: "MATIC",
+              symbol: "MATIC",
+              decimals: 18
+          },
+          blockExplorerUrls: ["https://polygonscan.com/"]
+      }
+    ]
+  });
+  }  
+
+
+
+
   const addBscTestnetToWallet = async () => {
     if (typeof window !== "undefined" && typeof window.ethereum !== "undefined") {
       try {
         const bscTestnetNetwork = {
-          chainId: '0x61', 
+          chainId: '0x61',
           chainName: 'Binance Smart Chain Testnet',
-          rpcUrls: ['https://data-seed-prebsc-1-s1.binance.org:8545/'], 
-          blockExplorerUrls: ['https://testnet.bscscan.com/'], 
+          rpcUrls: ['https://data-seed-prebsc-1-s1.binance.org:8545/'],
+          blockExplorerUrls: ['https://testnet.bscscan.com/'],
           nativeCurrency: {
             name: 'BNB',
             symbol: 'bnb',
             decimals: 18,
           },
         };
-  
-      
         await window.ethereum.request({
           method: 'wallet_addEthereumChain',
           params: [bscTestnetNetwork],
         });
-  
+
         console.log('BSC Testnet added to wallet.');
       } catch (error) {
         console.error('Error adding BSC Testnet to wallet:', error);
@@ -82,7 +90,7 @@ export const Header = () => {
       console.log('MetaMask or wallet provider not found.');
     }
   };
-  
+
 
   const getCurrentWalletConnected = async () => {
     if (typeof window != "undefined" && typeof window.ethereum != "undefined") {
@@ -92,52 +100,68 @@ export const Header = () => {
         });
         if (accounts.length > 0) {
           setWalletAddress(accounts[0]);
-          console.log(accounts[0]);
+
         } else {
           console.log("Connect to MetaMask using the Connect button");
         }
-      } catch (err:any) {
+      } catch (err: any) {
         console.error(err.message);
       }
     } else {
-    
+
       console.log("Please install MetaMask");
     }
   };
 
-  const addCustomNetwork = async (network:any) => {
-    if (typeof window !== "undefined" && typeof window.ethereum !== "undefined") {
-      try {
-        await window.ethereum.request({
-          method: 'wallet_addEthereumChain',
-          params: [network]
-        });
-        console.log('New network added to MetaMask.');
-      } catch (error) {
-        console.error('Error adding network to MetaMask:', error);
-      }
-    } else {
-      console.log('MetaMask or wallet provider not found.');
-    }
-  };
-  
+  const addWalletBalance = async () => {
+    try {
 
-  const addWalletListener = async () => {
+      const balanceEth = await window.ethereum.request({
+        method: "eth_getBalance",
+        params: [walletAddress, "latest"]
+      });
+
+      setWalletBalance(balanceEth);
+
+    } catch (error:any) {
+      
+    }
+
+  };
+
+  // const addCustomNetwork = async (network:any) => {
+  //   if (typeof window !== "undefined" && typeof window.ethereum !== "undefined") {
+  //     try {
+  //       await window.ethereum.request({
+  //         method: 'wallet_addEthereumChain',
+  //         params: [network]
+  //       });
+  //       console.log('New network added to MetaMask.');
+  //     } catch (error) {
+  //       console.error('Error adding network to MetaMask:', error);
+  //     }
+  //   } else {
+  //     console.log('MetaMask or wallet provider not found.');
+  //   }
+  // };
+
+
+  const addWalletAddress = async () => {
     if (typeof window != "undefined" && typeof window.ethereum != "undefined") {
-      window.ethereum.on("accountsChanged", (accounts:any) => {
+      window.ethereum.on("accountsChanged", (accounts: any) => {
         setWalletAddress(accounts[0]);
         console.log(accounts[0]);
       });
     } else {
-    
+
       setWalletAddress("");
       console.log("Please install MetaMask");
     }
   };
 
 
-  
-  
+
+
   return (
     <header
       className="absolute md:absolute top-0 left-0 right-0 z-[100] transition-colors duration-300 "
@@ -198,29 +222,22 @@ export const Header = () => {
           </div>
         </div>
         <div className="relative z-10 items-end space-x-[9px] hidden md:flex">
-          <a
-            className="btn btn-coral-simple !px-[12px] !py-[8px]"
-            href="/speak-with-us/"
-          >
-            Speak with us
-          </a>
+
           <a
             className="btn btn-coral-simple !px-[12px] !py-[8px]"
             href="/speak-with-us/"
             onClick={connectWallet}
           >
-          {walletAddress && walletAddress.length > 0
-                    ? `Connected: ${walletAddress.substring(
-                      0,6
-                      )}...${walletAddress.substring(38)}`
-                    : "Connect Wallet"}
+            {walletAddress && walletAddress.length > 0
+              ? `Connected: ${walletAddress.substring(0, 6)}...${walletAddress.substring(38)} (${parseInt(walletBalance,16)} ETH)`
+              : "Connect Wallet"}
           </a>
           <a
             className="btn btn-coral-simple !px-[12px] !py-[8px]"
             href="/speak-with-us/"
             onClick={disconnectWallet}
           >
-            Switch Wallet
+            Disconnect
           </a>
           <a
             className="btn btn-coral-simple !px-[12px] !py-[8px]"
@@ -229,9 +246,16 @@ export const Header = () => {
           >
             Add BSC Testnet
           </a>
-         
+          
+          <a
+            className="btn btn-coral-simple !px-[12px] !py-[8px]"
+            href="/speak-with-us/"
+            onClick={switchNetwork}
+          >
+            Switch Network
+          </a>
         </div>
-        
+
         <div className="md:hidden">
           <div className="relative z-[9999]">
             <div className="relative cursor-pointer top-0 w-[16px] h-[12px]">
@@ -244,32 +268,32 @@ export const Header = () => {
         </div>
       </div>
       <div className="md:hidden">
-  <div className="z-[99] bg-darkGreen text-white fixed w-screen h-screen mt-[-62px] transition-all duration-200 overflow-scroll translate-y-[-100vh]">
-    <div className="border-b border-white mt-[62px]"></div>
-    <div>
-      <div className="px-[10px] py-[18px] space-y-[10px] items-center text-[26px] font-normal flex flex-col">
-        <div className="w-full" >
-          <div className="w-full rounded-[5px] bg-fadedGreen overflow-hidden">
-            <a className="relative w-full flex items-center space-x-6 justify-between z-10 px-5 py-[25px] transition-all duration-200 sm:hover:bg-white sm:hover:text-darkGreen" href="/why-setpoint/">Why Setpoint?</a>
+        <div className="z-[99] bg-darkGreen text-white fixed w-screen h-screen mt-[-62px] transition-all duration-200 overflow-scroll translate-y-[-100vh]">
+          <div className="border-b border-white mt-[62px]"></div>
+          <div>
+            <div className="px-[10px] py-[18px] space-y-[10px] items-center text-[26px] font-normal flex flex-col">
+              <div className="w-full" >
+                <div className="w-full rounded-[5px] bg-fadedGreen overflow-hidden">
+                  <a className="relative w-full flex items-center space-x-6 justify-between z-10 px-5 py-[25px] transition-all duration-200 sm:hover:bg-white sm:hover:text-darkGreen" href="/why-setpoint/">Why Setpoint?</a>
+                </div>
+              </div>
+              <div className="w-full" >
+                <div className="w-full rounded-[5px] bg-fadedGreen overflow-hidden">
+                  <a className="relative w-full flex items-center space-x-6 justify-between z-10 px-5 py-[25px] transition-all duration-200 sm:hover:bg-white sm:hover:text-darkGreen" href="/#">Platform<span className="transition-all duration-200 rotate-90"><svg className="w-full h-full max-w-[24px] max-h-[24px]" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="12" fill="#FC9082"></circle><path fill-rule="evenodd" clip-rule="evenodd" d="M13.2378 8.1591L16.8345 11.6159C17.0552 11.828 17.0552 12.172 16.8345 12.3841L13.2378 15.8409C13.0171 16.053 12.6592 16.053 12.4385 15.8409C12.2178 15.6288 12.2178 15.2849 12.4385 15.0727L15.0704 12.5432H6V11.4568H15.0704L12.4385 8.92728C12.2178 8.71515 12.2178 8.37122 12.4385 8.1591C12.6592 7.94697 13.0171 7.94697 13.2378 8.1591Z" fill="white"></path></svg></span></a>
+                </div>
+              </div>
+            </div>
+            <div className="px-[10px] mt-[28px] relative z-10 text-center items-center space-y-[10px] flex flex-col">
+              <div className="block w-full" >
+                <a className="block btn btn-coral-simple w-full max-w-[315px] mx-auto !py-4 border border-coral" href="/contact">Speak with us</a>
+              </div>
+            </div>
+            <div className="px-[10px] my-8 text-center">
+              <p className="!text-sm">© 2023 Setpoint</p>
+            </div>
           </div>
         </div>
-        <div className="w-full" >
-          <div className="w-full rounded-[5px] bg-fadedGreen overflow-hidden">
-            <a className="relative w-full flex items-center space-x-6 justify-between z-10 px-5 py-[25px] transition-all duration-200 sm:hover:bg-white sm:hover:text-darkGreen" href="/#">Platform<span className="transition-all duration-200 rotate-90"><svg className="w-full h-full max-w-[24px] max-h-[24px]" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="12" fill="#FC9082"></circle><path fill-rule="evenodd" clip-rule="evenodd" d="M13.2378 8.1591L16.8345 11.6159C17.0552 11.828 17.0552 12.172 16.8345 12.3841L13.2378 15.8409C13.0171 16.053 12.6592 16.053 12.4385 15.8409C12.2178 15.6288 12.2178 15.2849 12.4385 15.0727L15.0704 12.5432H6V11.4568H15.0704L12.4385 8.92728C12.2178 8.71515 12.2178 8.37122 12.4385 8.1591C12.6592 7.94697 13.0171 7.94697 13.2378 8.1591Z" fill="white"></path></svg></span></a>
-          </div>
-        </div>
       </div>
-      <div className="px-[10px] mt-[28px] relative z-10 text-center items-center space-y-[10px] flex flex-col">
-        <div className="block w-full" >
-          <a className="block btn btn-coral-simple w-full max-w-[315px] mx-auto !py-4 border border-coral" href="/contact">Speak with us</a>
-        </div>
-      </div>
-      <div className="px-[10px] my-8 text-center">
-        <p className="!text-sm">© 2023 Setpoint</p>
-      </div>
-    </div>
-  </div>
-</div>
 
 
     </header>
