@@ -1,167 +1,24 @@
 import { useEffect, useState } from "react";
+import { useAccount, useConnect, useDisconnect, useEnsAvatar, useEnsName,
+} from 'wagmi'
 export const Header = () => {
-  const [walletAddress, setWalletAddress] = useState("");
-  const [walletBalance, setWalletBalance] = useState("");
-
-  useEffect(() => {
-    getCurrentWalletConnected();
-    addWalletAddress();
-    addWalletBalance();
-  }, [walletAddress]);
-
-  const connectWallet = async () => {
-    if (typeof window != "undefined" && typeof window.ethereum != "undefined") {
-      try {
-        const accounts = await window.ethereum.request({
-          method: "eth_requestAccounts",
-        });
-        setWalletAddress(accounts[0]);
-      } catch (err: any) {
-        setWalletAddress("");
-        console.error(err.message);
-      }
-    } else {
-      console.log("Please install MetaMask");
-    }
-  };
-  const disconnectWallet = async () => {
-    try {
-      // const accounts = await window.ethereum.request({
-      //   method: 'eth_requestAccounts',
-      //   params: [
-      //     {
-      //       eth_accounts: {},
-      //     },
-      //   ],
-      // });
-      setWalletAddress("");
-      setWalletBalance("");
-      alert('Wallet disconnected.');
-    } catch (error) {
-      alert('Error disconnecting wallet:');
-    }
-  };
-  
-  const switchNetwork = async () => {
-    await window.ethereum.request({
-      method: "wallet_addEthereumChain",
-      params: [{
-          chainId: "0x89",
-          rpcUrls: ["https://rpc-mainnet.matic.network/"],
-          chainName: "Matic Mainnet",
-          nativeCurrency: {
-              name: "MATIC",
-              symbol: "MATIC",
-              decimals: 18
-          },
-          blockExplorerUrls: ["https://polygonscan.com/"]
-      }
-    ]
-  });
-  }  
-
-
-
-
-  const addBscTestnetToWallet = async () => {
-    if (typeof window !== "undefined" && typeof window.ethereum !== "undefined") {
-      try {
-        const bscTestnetNetwork = {
-          chainId: '0x61',
-          chainName: 'Binance Smart Chain Testnet',
-          rpcUrls: ['https://data-seed-prebsc-1-s1.binance.org:8545/'],
-          blockExplorerUrls: ['https://testnet.bscscan.com/'],
-          nativeCurrency: {
-            name: 'BNB',
-            symbol: 'bnb',
-            decimals: 18,
-          },
-        };
-        await window.ethereum.request({
-          method: 'wallet_addEthereumChain',
-          params: [bscTestnetNetwork],
-        });
-
-        console.log('BSC Testnet added to wallet.');
-      } catch (error) {
-        console.error('Error adding BSC Testnet to wallet:', error);
-      }
-    } else {
-      console.log('MetaMask or wallet provider not found.');
-    }
-  };
-
-
-  const getCurrentWalletConnected = async () => {
-    if (typeof window != "undefined" && typeof window.ethereum != "undefined") {
-      try {
-        const accounts = await window.ethereum.request({
-          method: "eth_accounts",
-        });
-        if (accounts.length > 0) {
-          setWalletAddress(accounts[0]);
-
-        } else {
-          console.log("Connect to MetaMask using the Connect button");
-        }
-      } catch (err: any) {
-        console.error(err.message);
-      }
-    } else {
-
-      console.log("Please install MetaMask");
-    }
-  };
-
-  const addWalletBalance = async () => {
-    try {
-
-      const balanceEth = await window.ethereum.request({
-        method: "eth_getBalance",
-        params: [walletAddress, "latest"]
-      });
-
-      setWalletBalance(balanceEth);
-
-    } catch (error:any) {
-      
-    }
-
-  };
-
-  // const addCustomNetwork = async (network:any) => {
-  //   if (typeof window !== "undefined" && typeof window.ethereum !== "undefined") {
-  //     try {
-  //       await window.ethereum.request({
-  //         method: 'wallet_addEthereumChain',
-  //         params: [network]
-  //       });
-  //       console.log('New network added to MetaMask.');
-  //     } catch (error) {
-  //       console.error('Error adding network to MetaMask:', error);
-  //     }
-  //   } else {
-  //     console.log('MetaMask or wallet provider not found.');
-  //   }
-  // };
-
-
-  const addWalletAddress = async () => {
-    if (typeof window != "undefined" && typeof window.ethereum != "undefined") {
-      window.ethereum.on("accountsChanged", (accounts: any) => {
-        setWalletAddress(accounts[0]);
-        console.log(accounts[0]);
-      });
-    } else {
-
-      setWalletAddress("");
-      console.log("Please install MetaMask");
-    }
-  };
-
-
-
-
+  const { address, connector, isConnected } = useAccount()
+  const { data: ensName } = useEnsName({ address })
+  const { connect, connectors, error, isLoading, pendingConnector } =
+    useConnect()
+  const { disconnect } = useDisconnect();
+ 
+  if (isConnected) {
+   
+    return (
+      <div className="btn btn-coral-simple !px-[12px] !py-[8px]">
+        <div>Address: {ensName ? `${ensName} (${address})` : address}</div>
+        <div>Connected to {connector?.name}</div>
+        <button onClick={()=>disconnect()}>Disconnect</button>
+      </div>
+    )
+  }
+  console.log()
   return (
     <header
       className="absolute md:absolute top-0 left-0 right-0 z-[100] transition-colors duration-300 "
@@ -222,35 +79,34 @@ export const Header = () => {
           </div>
         </div>
         <div className="relative z-10 items-end space-x-[9px] hidden md:flex">
+            {connectors.map((connector) => (
+              <button 
+              className="btn btn-coral-simple !px-[12px] !py-[8px]"
+                disabled={!connector.ready}
+                key={connector.id}
+                onClick={() => connect({ connector })}
+              >
+                {connector.name}
+                {!connector.ready && ' (unsupported)'}
+                {isLoading &&
+                  connector.id === pendingConnector?.id &&
+                  ' (connecting)'}
+              </button>
+            ))}
+
+            {error && <div>{error.message}</div>}
+          <a
+            className="btn btn-coral-simple !px-[12px] !py-[8px]"
+            href="/speak-with-us/"
+
+          >
+            Add BSC Testnet
+          </a>
 
           <a
             className="btn btn-coral-simple !px-[12px] !py-[8px]"
             href="/speak-with-us/"
-            onClick={connectWallet}
-          >
-            {walletAddress && walletAddress.length > 0
-              ? `Connected: ${walletAddress.substring(0, 6)}...${walletAddress.substring(38)} (${parseInt(walletBalance,16)} ETH)`
-              : "Connect Wallet"}
-          </a>
-          <a
-            className="btn btn-coral-simple !px-[12px] !py-[8px]"
-            href="/speak-with-us/"
-            onClick={disconnectWallet}
-          >
-            Disconnect
-          </a>
-          <a
-            className="btn btn-coral-simple !px-[12px] !py-[8px]"
-            href="/speak-with-us/"
-            onClick={addBscTestnetToWallet}
-          >
-            Add BSC Testnet
-          </a>
-          
-          <a
-            className="btn btn-coral-simple !px-[12px] !py-[8px]"
-            href="/speak-with-us/"
-            onClick={switchNetwork}
+
           >
             Switch Network
           </a>
