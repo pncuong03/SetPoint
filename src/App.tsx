@@ -1,12 +1,8 @@
-import { WagmiConfig, createConfig, configureChains, mainnet } from 'wagmi'
- 
-import { alchemyProvider } from 'wagmi/providers/alchemy'
+import { WagmiConfig, createConfig, configureChains } from 'wagmi'
+import { avalanche, bsc, mainnet } from '@wagmi/core/chains'
 import { publicProvider } from 'wagmi/providers/public'
- 
-import { CoinbaseWalletConnector } from 'wagmi/connectors/coinbaseWallet'
-import { InjectedConnector } from 'wagmi/connectors/injected'
 import { MetaMaskConnector } from 'wagmi/connectors/metaMask'
-import { WalletConnectConnector } from 'wagmi/connectors/walletConnect'
+
 
 import { Build } from "./pages/build/Build";
 import { Flexible2 } from "./pages/flexible/Flexible2";
@@ -16,24 +12,29 @@ import { Intro } from "./pages/intro/Intro";
 import { Power } from "./pages/power/Power";
 import { Unlock } from "./pages/unlock/Unlock";
 import { WhySetpoint } from "./pages/whysetpoint/WhySetpoint";
+import { NetworkSwitcher } from './pages/header/SwitchNetwork';
 const { chains, publicClient, webSocketPublicClient } = configureChains(
-  [mainnet],
-  [alchemyProvider({ apiKey: 'yourAlchemyApiKey' }), publicProvider()],
+  [mainnet, bsc, avalanche],
+  [publicProvider()],
 )
- 
+
 // Set up wagmi config
 const config = createConfig({
   autoConnect: true,
   connectors: [
-    new MetaMaskConnector({ chains }),    
+    new MetaMaskConnector({ chains }),
+    
   ],
-  publicClient,
+  publicClient, 
   webSocketPublicClient,
 })
 function App() {
   return (
     <WagmiConfig config={config}>
-      <Header />
+      
+        <Header />
+        <NetworkSwitcher />
+      
       <main className="">
         <Intro />
         <WhySetpoint />

@@ -1,24 +1,37 @@
-import { useEffect, useState } from "react";
-import { useAccount, useConnect, useDisconnect, useEnsAvatar, useEnsName,
-} from 'wagmi'
+import React, { useEffect, useState } from "react";
+import { useAccount, useConnect, useDisconnect, useBalance, useEnsName } from 'wagmi';
+
 export const Header = () => {
   const { address, connector, isConnected } = useAccount()
   const { data: ensName } = useEnsName({ address })
-  const { connect, connectors, error, isLoading, pendingConnector } =
-    useConnect()
-  const { disconnect } = useDisconnect();
- 
+  const { connect, connectors, error, isLoading, pendingConnector } = useConnect()
+  const { disconnect } = useDisconnect()
+
+  const { data, refetch } = useBalance({
+    address,
+    watch: true,
+  })
+
+  useEffect(() => {
+    refetchBalance();
+  }, [isConnected]);
+
+  const refetchBalance = () => {
+    refetch();
+  }
+
   if (isConnected) {
-   
     return (
-      <div className="btn btn-coral-simple !px-[12px] !py-[8px]">
+      <div className="text-end pr-10">
         <div>Address: {ensName ? `${ensName} (${address})` : address}</div>
+        <div>Balance: {data?.formatted}</div>
         <div>Connected to {connector?.name}</div>
-        <button onClick={()=>disconnect()}>Disconnect</button>
+        <button className="btn btn-coral-simple !px-[12px] !py-[8px]" onClick={() => disconnect()}>Disconnect</button>
       </div>
     )
   }
-  console.log()
+
+
   return (
     <header
       className="absolute md:absolute top-0 left-0 right-0 z-[100] transition-colors duration-300 "
@@ -78,38 +91,23 @@ export const Header = () => {
             </div>
           </div>
         </div>
-        <div className="relative z-10 items-end space-x-[9px] hidden md:flex">
-            {connectors.map((connector) => (
-              <button 
+        <div className="relative z-10 items-end space-x-[9px] hidden md:flex ">
+
+          {connectors.map((connector) => (
+            <a
               className="btn btn-coral-simple !px-[12px] !py-[8px]"
-                disabled={!connector.ready}
-                key={connector.id}
-                onClick={() => connect({ connector })}
-              >
-                {connector.name}
-                {!connector.ready && ' (unsupported)'}
-                {isLoading &&
-                  connector.id === pendingConnector?.id &&
-                  ' (connecting)'}
-              </button>
-            ))}
 
-            {error && <div>{error.message}</div>}
-          <a
-            className="btn btn-coral-simple !px-[12px] !py-[8px]"
-            href="/speak-with-us/"
+              key={connector.id}
+              onClick={() => connect({ connector })}
+            >
+              Connect Wallet
+              {!connector.ready && ' (unsupported)'}
+              {isLoading &&
+                connector.id === pendingConnector?.id &&
+                ' (connecting)'}
+            </a>
+          ))}
 
-          >
-            Add BSC Testnet
-          </a>
-
-          <a
-            className="btn btn-coral-simple !px-[12px] !py-[8px]"
-            href="/speak-with-us/"
-
-          >
-            Switch Network
-          </a>
         </div>
 
         <div className="md:hidden">
@@ -153,5 +151,25 @@ export const Header = () => {
 
 
     </header>
+    //   <div className="text-center">
+    //   {connectors.map((connector) => (
+    //     <button
+    //     className="btn btn-coral-simple !px-[12px] !py-[8px]"
+    //       disabled={!connector.ready}
+    //       key={connector.id}
+    //       onClick={() => connect({ connector })}
+    //     >
+    //       {connector.name}
+    //       {!connector.ready && ' (unsupported)'}
+    //       {isLoading &&
+    //         connector.id === pendingConnector?.id &&
+    //         ' (connecting)'}
+    //     </button>
+    //   ))}
+
+    //   {error && <div>{error.message}</div>}
+
+
+    // </div>
   );
 };
